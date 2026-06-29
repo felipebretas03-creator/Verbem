@@ -9,25 +9,29 @@
     stroke-width: 0.5 !important;
     transition: all 0.3s ease;
     transform-origin: center;
-    animation: pulseState 3s infinite alternate;
   }
   
-  path:nth-child(even) {
-    animation-delay: 1s;
-  }
-  path:nth-child(3n) {
-    animation-delay: 2s;
-  }
+  /* Pseudo-random blinking using prime numbers */
+  path:nth-child(2n+1) { animation: blinkState 3.1s infinite; }
+  path:nth-child(3n+2) { animation: blinkState 4.7s infinite; }
+  path:nth-child(5n+1) { animation: blinkState 5.3s infinite; }
+  path:nth-child(7n+3) { animation: blinkState 6.8s infinite; }
+  path:nth-child(11n+5) { animation: blinkState 4.2s infinite; }
+  path:nth-child(13n+2) { animation: blinkState 7.5s infinite; }
+  path:nth-child(17n+4) { animation: blinkState 5.9s infinite; }
 
-  @keyframes pulseState {
-    0% { transform: scale(1); fill: #0f4c5c !important; }
-    100% { transform: scale(1.01); fill: #1D829A !important; }
+  @keyframes blinkState {
+    0%, 80% { fill: #0f4c5c !important; transform: scale(1); }
+    90% { fill: #1D829A !important; transform: scale(1.01); }
+    95% { fill: #F26B50 !important; transform: scale(1.02); }
+    100% { fill: #0f4c5c !important; transform: scale(1); }
   }
   
   path:hover {
     fill: #F26B50 !important;
     transform: translateY(-2px) scale(1.02);
     cursor: pointer;
+    animation: none; /* stop blinking on hover */
   }
 </style>
 <desc>

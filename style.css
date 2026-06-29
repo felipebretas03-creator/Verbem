@@ -890,6 +890,10 @@ section {
 
 /* Responsive */
 @media (max-width: 1024px) {
+    .hero {
+        background-attachment: scroll;
+        min-height: 600px;
+    }
     .hero h1 { font-size: 3.5rem; }
     .impacto-grid, .cotas-grid { grid-template-columns: repeat(2, 1fr); }
     .cota-card.featured { transform: none; }
